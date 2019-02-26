@@ -8,6 +8,12 @@
 #ifndef DP_GMM2_GAUSSMIXTURECOMPONENT_H_
 #define DP_GMM2_GAUSSMIXTURECOMPONENT_H_
 
+
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/unordered_set.hpp>
+#include <boost/serialization/utility.hpp>
+#include <boost/serialization/complex.hpp>
+
 #include <unordered_set>
 
 #include "MatrixTypes.h"
@@ -33,6 +39,18 @@ namespace DP_GMM {
         const EiMatrix precision;
         const double precision_det;
         const double comp_weight;
+
+        friend class boost::serialization::access;
+
+        template<class Archive>
+        void serialize(Archive &ar, const unsigned int version) {
+            ar & mean;
+            ar & cov;
+            ar & decomposed_cov;
+            ar & precision;
+            ar & precision_det;
+            ar & comp_weight;
+        }
     };
 
     typedef std::shared_ptr<GaussMixtureComponent> GaussMixtureComponentPtr;
