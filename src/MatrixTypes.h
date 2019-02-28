@@ -10,7 +10,6 @@
 
 #include <Eigen/Dense>
 #include <Eigen/Cholesky>
-#include <boost/serialization/array_wrapper.hpp>
 
 namespace DP_GMM {
 
