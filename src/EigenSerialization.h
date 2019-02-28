@@ -6,7 +6,7 @@
 #define EIGENSERIALIZATION_H
 
 #include <Eigen/src/Core/Matrix.h>
-#include <boost/serialization/array_wrapper.hpp>
+#include <boost/serialization/array.hpp>
 
 namespace boost {
     namespace serialization {
