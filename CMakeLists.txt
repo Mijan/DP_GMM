@@ -32,7 +32,7 @@ find_package(Boost 1.54.0 REQUIRED COMPONENTS program_options system filesystem)
 
 ## Eigen
 find_package(Eigen3 REQUIRED)
-if (NOT Eigen3)
+if (NOT Eigen3_FOUND)
     message("Eigen3 library not found (you can set Eigen3 location through the environment variable EIGEN3_ROOT).")
 endif ()
 include_directories(${EIGEN3_INCLUDE_DIR})
