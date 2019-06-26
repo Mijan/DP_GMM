@@ -31,13 +31,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${DP_GMM_SOURCE_DIR}/cmake/Modules/"
 find_package(Boost 1.54.0 REQUIRED COMPONENTS program_options system filesystem)
 
 ## Eigen
-find_package(Eigen3)
+find_package(Eigen3 REQUIRED)
 if (NOT Eigen3_FOUND)
-    message("Eigen3 library not found (you can set Eigen3 location through the environment variable EIGEN3_ROOT). Shipped Eigen3 library in ${CMAKE_SOURCE_DIR}/../eigen3.4 will be used!")
-    if (NOT DEFINED ENV{EIGEN3_ROOT})
-        set(ENV{EIGEN3_ROOT} "${CMAKE_SOURCE_DIR}/../eigen3.4/" CACHE FILEPATH "The location of the Eigen library")
-    endif ()
-    find_package(Eigen3 REQUIRED)
+    message("Eigen3 library not found (you can set Eigen3 location through the environment variable EIGEN3_ROOT).")
 endif ()
 include_directories(${EIGEN3_INCLUDE_DIR})
 
