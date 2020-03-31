@@ -29,6 +29,7 @@ install(FILES src/DataReader.h src/IOUtils.h src/AdaptiveRejectionSampler.h src/
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${DP_GMM_SOURCE_DIR}/cmake/Modules/")
 ## Boost
 find_package(Boost 1.54.0 REQUIRED COMPONENTS program_options system filesystem)
+include_directories(${Boost_INCLUDE_DIR})
 
 ## Eigen
 find_package(Eigen3 REQUIRED)
